@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name ="f" method="POST" action="/process_login">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+    <label for="name">Enter username</label>
+<input type="text" name="username" id="name"/>
+    <label for="pass">Enter password</label>
+    <input type="password" name="password" id="pass"/>
+    <input type="submit" value="login">
+    <div th:if="${param.error}" style="color:red">
+        Wrong username or password. Try Andrei again.
+    </div>
+</form>
+</body>
+</html>
